@@ -1,0 +1,159 @@
+@import 'https://overpass-30e2.kxcdn.com/overpass.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  padding: 15px;
+  display: grid;
+  justify-items: center;
+  align-items: flex-start;
+  overflow: hidden;
+  opacity: 0.5;
+  background: #48233c;
+  color: #48233c;
+
+  text-shadow: 12px 12px 1px #cf94bc, -12px -12px 1px #1b1b1b;
+  cursor: default;
+}
+
+body,
+button,
+a {
+  font-family: 'Overpass';
+}
+
+.title,
+.explanation {
+  transition: all 1s ease-out;
+}
+
+.title:hover,
+.explanation:hover {
+  text-shadow: none;
+  color: #eee;
+}
+
+.manifestation {
+  height: 150px;
+  width: 50px;
+  border-radius: calc(150px / 3.5);
+  box-shadow: -6px -6px 6px #926082, 6px 6px 6px #1b1b1b;
+  transition: box-shadow 1s ease-out, background 2s ease-out,
+    transform 1s linear, height 1s ease-out, width 1s ease-out,
+    border-radius 1s linear;
+  animation: initial;
+}
+
+.manifestation-circular,
+.manifestation:hover {
+  background: linear-gradient(-180deg, #48233c, #48233c);
+  box-shadow: 6px -6px 6px #926082, -6px 6px 6px #1b1b1b;
+  transform: rotate(90deg);
+  animation: spin-shadow infinite 12s linear;
+}
+
+.manifestation-clicked,
+.manifestation:active {
+  background: linear-gradient(-145deg, #926082, #48233c);
+  box-shadow: inset 6px 6px 6px #926082, inset -6px -6px 6px #1b1b1b;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  transition: all 750ms linear;
+  animation: spin-shadow-inset infinite 16s ease-out alternate-reverse;
+}
+
+@keyframes spin-shadow {
+  0% {
+    box-shadow: 6px -6px 6px #926082, -6px 6px 6px #1b1b1b;
+  }
+  25% {
+    box-shadow: -6px -6px 6px #926082, 6px 6px 6px #1b1b1b;
+  }
+  50% {
+    box-shadow: -6px 6px 6px #926082, 6px -6px 6px #1b1b1b;
+  }
+  75% {
+    box-shadow: 6px 6px 6px #926082, -6px -6px 6px #1b1b1b;
+  }
+}
+
+@keyframes spin-shadow-inset {
+  /* first scheme */
+  0% {
+    box-shadow: inset 12px 12px 18px #754d68, inset -12px -12px 18px #af739c;
+  }
+  8.9% {
+    box-shadow: inset 12px -12px 20px #66435b, inset -12px 12px 20px #be7da9;
+  }
+  16.66% {
+    box-shadow: inset -12px -12px 23px #56394d, inset 12px 12px 23px #ce87b7;
+  }
+  25% {
+    box-shadow: inset -12px 12px 30px #4a3142, inset 12px -12px 30px #da8fc2;
+  }
+  /* second scheme */
+  33.33% {
+    box-shadow: inset 20px 20px 100px #926082, inset -20px -20px 100px #88ffff;
+  }
+  41.66% {
+    box-shadow: inset 10px 10px 50px #926082, inset -10px -10px 50px #88ffff;
+  }
+  50% {
+    box-shadow: inset 5px 5px 25px #926082, inset -5px -5px 25px #88ffff;
+  }
+  58.33% {
+    box-shadow: inset 2px 2px 12px #926082, inset -2px -2px 12px #88ffff;
+  }
+  /* third scheme */
+  66.66% {
+    box-shadow: inset 6px 6px 6px #926082, inset -6px -6px 6px #5c3c51;
+  }
+  75% {
+    box-shadow: inset 6px -6px 8px #926082, inset -6px 6px 8px #462e3e;
+  }
+  83.32% {
+    box-shadow: inset -6px -6px 12px #926082, inset 6px 6px 12px #362430;
+  }
+  91.65% {
+    box-shadow: inset 6px 6px 6px #926082, inset -6px -6px 6px #1b1b1b;
+  }
+}
+
+.options {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
+}
+
+.reset {
+  text-shadow: none;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.reset:hover {
+  color: #eee;
+}
+
+.link {
+  animation: light-up 10s 100ms linear forwards;
+  text-decoration: underline;
+}
+
+@keyframes light-up {
+  from {
+  }
+
+  to {
+    color: #fff;
+    text-shadow: none;
+  }
+}
